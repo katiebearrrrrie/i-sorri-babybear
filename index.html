@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A cute Valentine's Day page to ask someone to be your Valentine!">
+  <meta name="description" content="A cute apology page for my babibear <3 ">
   <meta name="theme-color" content="#ffd0e5">
-  <title>Valentine's Day</title>
+  <title> i lav impybear ❤️</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <style>
     .gradient-background {
-      background: linear-gradient(180deg, #ffd0e5 0%, #ffe8f2 36%, #ffffff 100%);
+      background: linear-gradient(180deg, #5fa7ff 0%, #99cffb 36%, #ffffff 100%);
       min-height: 100vh;
     }
 
@@ -30,26 +30,19 @@
       }
     }
   </style>
-  <!-- Preload images so transitions feel instant -->
-  <link rel="preload" as="image" href="./images/image1.gif">
-  <link rel="preload" as="image" href="./images/image2.gif">
-  <link rel="preload" as="image" href="./images/image3.gif">
-  <link rel="preload" as="image" href="./images/image4.gif">
-  <link rel="preload" as="image" href="./images/image5.gif">
-  <link rel="preload" as="image" href="./images/image6.gif">
-  <link rel="preload" as="image" href="./images/image7.gif">
+
 </head>
 <body class="gradient-background">
   <main class="flex items-center justify-center h-screen">
     <section class="flex flex-col items-center p-4">
       <img
         id="imageDisplay"
-        src="./images/image1.gif"
-        alt="Cute kitten with flowers"
+        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWJ5Zm5yeTJ3MWJxeHo0YXZydHpmMHVna2hycDdkNGgxbGJweDhrZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohhwFapJTVNPKITWU/giphy.gif"
+        alt="puppy gif "
         class="rounded-md h-[300px] object-cover"
       />
-      <h1 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">
-        Will you be my Valentine?
+      <h1 id="forgivemeQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">
+        will you forgive me babibear and sleep callie tn? :c 
       </h1>
       <div id="responseButtons" class="flex gap-4 pt-5 items-center">
         <button
@@ -74,7 +67,7 @@
       const yesButton = document.getElementById('yesButton');
       const noButton = document.getElementById('noButton');
       const imageDisplay = document.getElementById('imageDisplay');
-      const valentineQuestion = document.getElementById('valentineQuestion');
+      const forgivemeQuestion = document.getElementById('forgivemeQuestion');
       const responseButtons = document.getElementById('responseButtons');
 
       // Configuration
@@ -83,32 +76,33 @@
       const MAX_NO_CLICKS = 5;
 
       const IMAGE_PATHS = [
-        './images/image1.gif',
-        './images/image2.gif',
-        './images/image3.gif',
-        './images/image4.gif',
-        './images/image5.gif',
-        './images/image6.gif',
-        './images/image7.gif',
+      
+         'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2E2c2o3Ymlla2JwdG4xZ3FvaHo3bDlmejU5bjI2d21yeTdxbXJwZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnGAt5S2TYrqXhUJlb/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjgwdjUzazA5ajFlZ3k2M3ZxM21qOWVrMW10dW8waGJjcDcza3VkcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUNd9DA5GeDWFiWONG/giphy.gif',
+        'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2ZzaWZ2YjZndmdrcjBmNDkwMGV4c2c0bzZhZ3U0ZWRzd2hyZmJobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/C7Gj216EwEi4/giphy.gif',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2plOTFjenFwdWo5YW9wZ20yZjdlYmhobWVsczM1cWpncDlyNXB3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QFSD9tGuryBHy/giphy.gif',
+        'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTg2dnh3MDEzaGM2Y2x3aTlzOWoyYjVjNXV5aDB4dG02NTltZDFmYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ACltv8HKM4WOs/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzhjNjRhZHRtamExdnVsdnMxdmRmNXY5dGc1Y202aDN3N2YybGNzMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PnsJDYGBKvk6mggbSw/giphy.gif',
       ];
 
       const NO_BUTTON_MESSAGES = [
         'No',
         'Are you sure?',
-        'Pookie please',
-        "Don't do this to me :(",
-        "You're breaking my heart",
-        "I'm gonna cry...",
+        'babi pls :c ',
+        " meanie :c ",
+        " baby heart warmie ",
+        " wawa :c ",
+         'please babibear ',
       ];
 
       const ALT_TEXTS = [
-        'Cute kitten with flowers',
-        'Sad kitten looking up',
-        'Kitten begging',
-        'Heartbroken kitten',
-        'Crying kitten',
-        'Devastated kitten',
-        'Happy kitten celebrating',
+        'Cute puppy with flowers',
+        'Sad puppy looking up',
+        'Puppy begging',
+        'Heartbroken puppy ',
+        'Crying puppy '
+        'Devastated puppy ',
+        'Happy puppy celebrating',
       ];
 
       // State
@@ -142,10 +136,10 @@
       yesButton.addEventListener('click', () => {
         imageDisplay.src = IMAGE_PATHS[IMAGE_PATHS.length - 1];
         imageDisplay.alt = ALT_TEXTS[ALT_TEXTS.length - 1];
-        valentineQuestion.textContent = 'Yayyy!! :3';
+        forgivemeQuestion.textContent = 'Yayyy!! danke babibear :3';
         responseButtons.style.display = 'none';
 
-        // Heart-shaped confetti for a valentine theme
+        // Heart-shaped confetti for a forgive me theme
         const heart = confetti.shapeFromPath({
           path: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z',
         });
@@ -160,3 +154,4 @@
   </script>
 </body>
 </html>
+
