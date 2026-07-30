@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #8ac8f7, #ebecf4);
+  color: rgb(244, 248, 250);
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: .3;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: .8;
+}
+
+
+/* ENVELOPE AREA */
+
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+
+.envelope {
+  position: relative;
+  width: 330px;
+  height: 220px;
+  cursor: pointer;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+
+/* back */
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffb6c9;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+
+/* letter */
+
+.paper {
+  position: absolute;
+  width: 290px;
+  height: 170px;
+  left: 20px;
+  top: 20px;
+
+  background: white;
+  color: #444;
+
+  padding: 15px;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  z-index: 2;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  transition: 1s ease;
+
+  transform: translateY(20px);
+}
+
+/* front pocket */
+
+.front {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 130px;
+
+  background: #ffb6c9;
+
+  border-radius: 0 0 10px 10px;
+
+  z-index: 4;
+}
+
+
+/* flap */
+
+.flap {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-left: 165px solid transparent;
+  border-right: 165px solid transparent;
+  border-top: 130px solid #ff8fab;
+
+  top: 0;
+
+  transform-origin: top;
+
+  transition: 1s ease;
+
+  z-index: 5;
+}
+
+
+/* OPEN ANIMATION */
+
+.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.open .paper {
+  transform: translateY(-190px);
+  height: 350px;
+  overflow-y: auto;
+  z-index: 6;
+}
+
+/* BUTTONS */
+
+button {
+  background: #ff8fab;
+  border: none;
+
+  color: white;
+
+  padding: 12px 25px;
+
+  border-radius: 30px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  margin: 5px;
+
+  transition: .3s;
+}
+
+
+button:hover {
+  transform: scale(1.1);
+}
+
+
+.question {
+  display: none;
+  margin-top: 30px;
+}
+
+
+#answer {
+  font-size: 20px;
+} 

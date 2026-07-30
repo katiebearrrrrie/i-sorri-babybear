@@ -1,157 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A cute apology page for my babibear <3 ">
-  <meta name="theme-color" content="#ffd0e5">
-  <title> i lav impybear ❤️</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <style>
-    .gradient-background {
-      background: linear-gradient(180deg, #5fa7ff 0%, #99cffb 36%, #ffffff 100%);
-      min-height: 100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .bounce {
-      animation: bounce 2s ease infinite;
-    }
+<title> made with love by katiebear </title>
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-20px);
-      }
-      60% {
-        transform: translateY(-10px);
-      }
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
 
 </head>
-<body class="gradient-background">
-  <main class="flex items-center justify-center h-screen">
-    <section class="flex flex-col items-center p-4">
-      <img
-        id="imageDisplay"
-        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWJ5Zm5yeTJ3MWJxeHo0YXZydHpmMHVna2hycDdkNGgxbGJweDhrZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohhwFapJTVNPKITWU/giphy.gif"
-        alt="puppy gif "
-        class="rounded-md h-[300px] object-cover"
-      />
-      <h1 id="forgivemeQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">
-        will you forgive me babibear and sleep callie tn? :c 
-      </h1>
-      <div id="responseButtons" class="flex gap-4 pt-5 items-center">
-        <button
-          id="yesButton"
-          class="bounce inline-flex items-center justify-center whitespace-nowrap rounded-md text-xl font-medium cursor-pointer px-4 py-2 bg-green-500 text-white transition-all duration-300 ease-in-out hover:bg-green-400 min-h-12 min-w-[75px]"
-        >
-          Yes
-        </button>
-        <button
-          id="noButton"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xl font-medium cursor-pointer px-4 py-2 bg-red-500 text-white transition-colors hover:bg-red-700 h-12 min-w-[75px]"
-        >
-          No
-        </button>
-      </div>
-    </section>
-  </main>
+ 
 
-  <script>
-    (() => {
-      // DOM references
-      const yesButton = document.getElementById('yesButton');
-      const noButton = document.getElementById('noButton');
-      const imageDisplay = document.getElementById('imageDisplay');
-      const forgivemeQuestion = document.getElementById('forgivemeQuestion');
-      const responseButtons = document.getElementById('responseButtons');
 
-      // Configuration
-      const GROWTH_PER_CLICK = 35;
-      const FONT_GROWTH_PER_CLICK = 25;
-      const MAX_NO_CLICKS = 5;
+<body>
 
-      const IMAGE_PATHS = [
-      
-         'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2E2c2o3Ymlla2JwdG4xZ3FvaHo3bDlmejU5bjI2d21yeTdxbXJwZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnGAt5S2TYrqXhUJlb/giphy.gif',
-        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjgwdjUzazA5ajFlZ3k2M3ZxM21qOWVrMW10dW8waGJjcDcza3VkcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUNd9DA5GeDWFiWONG/giphy.gif',
-        'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2ZzaWZ2YjZndmdrcjBmNDkwMGV4c2c0bzZhZ3U0ZWRzd2hyZmJobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/C7Gj216EwEi4/giphy.gif',
-        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2plOTFjenFwdWo5YW9wZ20yZjdlYmhobWVsczM1cWpncDlyNXB3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QFSD9tGuryBHy/giphy.gif',
-        'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTg2dnh3MDEzaGM2Y2x3aTlzOWoyYjVjNXV5aDB4dG02NTltZDFmYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ACltv8HKM4WOs/giphy.gif',
-        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzhjNjRhZHRtamExdnVsdnMxdmRmNXY5dGc1Y202aDN3N2YybGNzMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PnsJDYGBKvk6mggbSw/giphy.gif',
-      ];
+<div class="stars"></div>
 
-      const NO_BUTTON_MESSAGES = [
-        'No',
-        'Are you sure?',
-        'babi pls :c ',
-        " meanie :c ",
-        " baby heart warmie ",
-        " wawa :c ",
-         'please babibear ',
-      ];
 
-      const ALT_TEXTS = [
-        'Cute puppy with flowers',
-        'Sad puppy looking up',
-        'Puppy begging',
-        'Heartbroken puppy ',
-        'Crying puppy ',
-        'Devastated puppy ',
-        'Happy puppy celebrating',
-      ];
+<div class="container">
 
-      // State
-      let noClickCount = 0;
-      let buttonHeight = 48;
-      let buttonWidth = 80;
-      let fontSize = 20;
+<h1>made with love by katiebear </h1>
 
-      noButton.addEventListener('click', () => {
-        if (noClickCount >= MAX_NO_CLICKS) return;
+<p class="subtitle">
+katiebear lavs u
+</p>
 
-        noClickCount++;
 
-        // Update image and alt text
-        imageDisplay.src = IMAGE_PATHS[noClickCount];
-        imageDisplay.alt = ALT_TEXTS[noClickCount];
 
-        // Grow the "Yes" button to make it harder to ignore
-        buttonHeight += GROWTH_PER_CLICK;
-        buttonWidth += GROWTH_PER_CLICK;
-        fontSize += FONT_GROWTH_PER_CLICK;
+<div class="envelope-container">
 
-        yesButton.style.height = `${buttonHeight}px`;
-        yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`;
+<div class="envelope" id="envelope">
 
-        // Update "No" button text with increasingly desperate messages
-        noButton.textContent = NO_BUTTON_MESSAGES[noClickCount];
-      });
 
-      yesButton.addEventListener('click', () => {
-        imageDisplay.src = IMAGE_PATHS[IMAGE_PATHS.length - 1];
-        imageDisplay.alt = ALT_TEXTS[ALT_TEXTS.length - 1];
-        forgivemeQuestion.textContent = 'Yayyy!! danke babibear :3';
-        responseButtons.style.display = 'none';
+<div class="back"></div>
 
-        // Heart-shaped confetti for a forgive me theme
-        const heart = confetti.shapeFromPath({
-          path: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z',
-        });
 
-        const defaults = { spread: 360, ticks: 100, gravity: 0, decay: 0.94, startVelocity: 20, shapes: [heart], colors: ['#ff69b4', '#ff1493', '#ff6b81', '#e84393'] };
+<div class="paper">
 
-        confetti({ ...defaults, particleCount: 50, scalar: 2 });
-        confetti({ ...defaults, particleCount: 25, scalar: 3 });
-        confetti({ ...defaults, particleCount: 10, scalar: 4 });
-      });
-    })();
-  </script>
+<p id="apologyText">
+
+Hai baby, 
+
+<br><br>
+
+Im sorri dat I made u pissed and uneased still, and now we're not sleeping calling.
+It's been terrible because I miss u so muchie. And u saying u wished I was ur gf at that
+moment made me feel so horrible, and I feel super bad for making u feel dat way baby.
+I rlly do. :(
+
+<br><br>
+
+I wanna make it uppie and I want you to know that from the bottom of my heart that I don't
+like porsche I promise I don't bcs you're still my impy bear, my baby, and no one could
+ever take ur place.
+
+<br><br>
+
+If my words made it seem like I cared about him more or that I was taking his side,
+then I'm truly sorri because that was never what I meant baby :c
+
+<br><br>
+
+I know things might be awkward for a little while but I truly believe we can fix this tg.
+<br><br>
+
+No matter how upset u r with me rn, ur still my babybear with a soft heart and you
+always will be baby.
+
+<br><br>
+
+I'll listen, cooperate, and do better because I never want to be the reason u question
+if I love u.
+
+<br><br>
+
+I do love u baby, I'm truly sorri and I wanna make up for my actions that caused 
+harm to u my baby :c givi me wat to do for u and ill cooperate bcs a woman 
+who cooperates earns i love you sooo muchie sorri its not da best i tried i promise :c
+im sickie and it hurtie when im on devices too much but i fightie for this i love you
+bunbun ur da best person ever and i dont ever wanna lose uu lets talk and make uppie 
+bcs ur my baby no matter what and i dont want u as anyone elses baby :c 
+
+<br><br>
+
+I'm still right here where u left me, my lovie comebackie :c its hard when ur not around
+anymore i miss u so muchie and i havent slept well since we stopped sleep calling and 
+not talkie i cant be this coldhearted person i care so muchie abt u baby it hurts comebackie
+i dont wanna do anything anymore if ur not by my side :c i promise ill work super duper 
+hard to go to munich w u i pinky promise that ill put in all my efforts no matter how
+tired or exhausted i get :c bcs i know u told me before that ur scared of ldr bcs i might 
+cheat ( i could never ) so im gna work my butt off and go w u i pinky promise ill work hard 
+everyday i lav u baby i do so muchie and no other person would take ur place :c lets talkie
+and work this out tg handsome i cant afford to lose u now look how far we've come tg bunbun 
+
+
+</p>
+
+</div>
+
+
+
+<div class="front"></div>
+
+<div class="flap"></div>
+
+
+</div>
+
+</div>
+
+
+
+<button id="openBtn">
+Open my letter 💌
+</button>
+
+
+
+<div class="question" id="question">
+
+
+<h2>
+Will u forgivie once we make uppie :c
+</h2>
+
+
+<button onclick="forgive()">
+Yes 
+</button>
+
+
+<button onclick="wait()">
+Maybe
+</button>
+
+
+<p id="answer"></p>
+
+
+</div>
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
-
